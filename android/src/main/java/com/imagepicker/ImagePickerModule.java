@@ -291,11 +291,13 @@ public class ImagePickerModule extends ReactContextBaseJavaModule implements Act
         }
         break;
       case REQUEST_LAUNCH_VIDEO_LIBRARY:
-        response.putString("uri", getRealPathFromURI(data.getData()));
+        response.putString("uri", data.getData().toString());
+        response.putString("path", getRealPathFromURI(data.getData()));
         mCallback.invoke(response);
         return;
       case REQUEST_LAUNCH_VIDEO_CAPTURE:
-        response.putString("uri", getRealPathFromURI(data.getData()));
+        response.putString("uri", data.getData().toString());
+        response.putString("path", getRealPathFromURI(data.getData()));
         mCallback.invoke(response);
         return;
       default:
